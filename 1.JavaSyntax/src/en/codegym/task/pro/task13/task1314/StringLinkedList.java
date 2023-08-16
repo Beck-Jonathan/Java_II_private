@@ -1,16 +1,9 @@
-package en.codegym.task.pro.task13.task1313;
+
+package en.codegym.task.pro.task13.task1314;
 
 public class StringLinkedList {
     private Node first = new Node();
     private Node last = new Node();
-
-    public void printAll() {
-        Node currentElement = first.next;
-        while ((currentElement) != null) {
-            System.out.println(currentElement.value);
-            currentElement = currentElement.next;
-        }
-    }
 
     public void add(String value) {
         if (first.next == null) {
@@ -30,6 +23,20 @@ public class StringLinkedList {
         lastNode.next = node;
         node.prev = lastNode;
         last.prev = node;
+    }
+
+    public String get(int index) {
+        Node test = first;
+        int count = 0;
+        while (count<=index){
+            if (test.next==null){
+                return null;
+            }
+            test = test.next;
+            count++;
+        }
+
+        return test.value;
     }
 
     public static class Node {
